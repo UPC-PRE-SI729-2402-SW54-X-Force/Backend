@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 import xforce.drivenowbackend.shared.domain.model.aggregates.AuditableAbstractAggregateRoot;
+import xforce.drivenowbackend.users.domain.model.commands.CreateDriverCommand;
 import xforce.drivenowbackend.users.domain.model.valueobjects.License;
 
 @Entity
@@ -45,5 +46,13 @@ public class Driver extends AuditableAbstractAggregateRoot<Driver> {
         this.license = new License(licenseId, surname, name, licenseNumber, licenseClass, expirationDate, issueDate, category, urlImage);
     }
 
-
+    public Driver(CreateDriverCommand command){
+        this.name = command.name();
+        this.age = command.age();
+        this.email = command.email();
+        this.address = command.address();
+        this.pfpUrl = command.pfpUrl();
+        this.joined = command.joined();
+        this.license = new License(command.licenseId(), command.surname(), command.name(), command.licenseNumber(), command.licenseClass(), command.expirationDate(), command.issueDate(), command.category(), command.urlImage());
+    }
 }
