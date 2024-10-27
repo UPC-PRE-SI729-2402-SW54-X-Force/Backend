@@ -2,6 +2,7 @@ package xforce.drivenowbackend.users.domain.model.valueobjects;
 
 import jakarta.persistence.Embeddable;
 
+
 @Embeddable
 public record License(String id, String surname,
                       String name, String licenseNumber,
@@ -39,5 +40,33 @@ public record License(String id, String surname,
         if (urlImage == null || urlImage.isBlank()) {
             throw new IllegalArgumentException("License url image is required");
         }
+    }
+
+    public String getId() {
+        return id;
+    }
+    public String getSurname() {
+        return surname;
+    }
+    public String getName() {
+        return name;
+    }
+    public String getLicenseNumber() {
+        return licenseNumber;
+    }
+    public String getLicenseClass() {
+        return licenseClass;
+    }
+    public String getExpirationDate() {
+        return expirationDate;
+    }
+    public String getIssueDate() {
+        return issueDate;
+    }
+    public String getCategory() {
+        return category;
+    }
+    public String getUrlImage() {
+        return urlImage;
     }
 }
