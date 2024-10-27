@@ -55,4 +55,32 @@ public class Driver extends AuditableAbstractAggregateRoot<Driver> {
         this.joined = command.joined();
         this.license = new License(command.licenseId(), command.surname(), command.name(), command.licenseNumber(), command.licenseClass(), command.expirationDate(), command.issueDate(), command.category(), command.urlImage());
     }
+
+    public String getLicenseId() {
+        return license.getId();
+    }
+    public String getLicenseSurname() {
+        return license.getSurname();
+    }
+    public String getLicenseName() {
+        return license.getName();
+    }
+    public String getLicenseNumber() {
+        return license.getLicenseNumber();
+    }
+    public String getLicenseClass() {
+        return license.getLicenseClass();
+    }
+    public String getLicenseExpirationDate() {
+        return license.getExpirationDate();
+    }
+    public String getLicenseIssueDate() {
+        return license.getIssueDate();
+    }
+    public String getLicenseCategory() {
+        return license.getCategory();
+    }
+    public String getLicenseUrlImage() {
+        return license.getUrlImage();
+    }
 }
