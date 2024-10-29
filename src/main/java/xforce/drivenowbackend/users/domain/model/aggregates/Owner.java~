@@ -30,4 +30,6 @@ public class Owner extends AuditableAbstractAggregateRoot<Owner> {
         this.email = command.email();
         this.dni = command.dni();
     }
+
+
 }
