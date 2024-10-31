@@ -1,4 +1,0 @@
-package xforce.drivenowbackend.users.application;
-
-public class OwnerQueryServiceImpl {
-}
