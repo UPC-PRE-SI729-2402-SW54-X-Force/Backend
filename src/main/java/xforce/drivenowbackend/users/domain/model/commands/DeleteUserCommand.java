@@ -1,4 +1,4 @@
 package xforce.drivenowbackend.users.domain.model.commands;
 
-public record CreateOwnerCommand() {
+public record DeleteUserCommand(Long userId) {
 }
