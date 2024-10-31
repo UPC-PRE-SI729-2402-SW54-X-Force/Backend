@@ -49,4 +49,15 @@ public class License extends AuditableAbstractAggregateRoot<License> {
         this.expirationDate = command.expirationDate();
         this.issueDate = command.issueDate();
     }
+
+    public License updateInformation(String firstName, String lastName, int licenceNumber, String licenseClass, String licenseCategory, String licenseUrlImage, Date expirationDate, Date issueDate) {
+        this.name = new FullName(firstName, lastName);
+        this.licenceNumber = licenceNumber;
+        this.licenseClass = licenseClass;
+        this.licenseCategory = licenseCategory;
+        this.licenseUrlImage = licenseUrlImage;
+        this.expirationDate = expirationDate;
+        this.issueDate = issueDate;
+        return this;
+    }
 }
