@@ -32,6 +32,7 @@ public class User extends AuditableAbstractAggregateRoot<User> {
             @AttributeOverride(name = "postalCode", column = @Column(name = "address_postalCode")),
             @AttributeOverride(name = "country", column = @Column(name = "address_country")),
     })
+
     private StreetAddress address;
 
     public User(){}
@@ -55,8 +56,36 @@ public class User extends AuditableAbstractAggregateRoot<User> {
         return name.getFullName();
     }
 
+    public String getFirstName() {
+        return name.getFirstName();
+    }
+
+    public String getLastName() {
+        return name.getLastName();
+    }
+
     public String getStreetAddress() {
         return address.getStreetAddress();
+    }
+
+    public String getStreet(){
+        return address.getStreet();
+    }
+
+    public String getNumber(){
+        return address.getNumber();
+    }
+
+    public String getCity(){
+        return address.getCity();
+    }
+
+    public String getPostalCode(){
+        return address.getPostalCode();
+    }
+
+    public String getCountry(){
+        return address.getCountry();
     }
 
     public String getEmailAddress() {

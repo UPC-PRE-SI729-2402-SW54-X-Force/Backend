@@ -1,4 +1,0 @@
-package xforce.drivenowbackend.users.interfaces.rest.transform;
-
-public class OwnerResourceFromEntityAssembler {
-}

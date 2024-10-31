@@ -16,6 +16,13 @@ public record FullName(String firstName, String lastName) {
         }
     }
 
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
     public String getFullName(){
         return String.format("%s %s", firstName, lastName);
     }

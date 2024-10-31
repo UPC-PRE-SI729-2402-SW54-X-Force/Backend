@@ -2,7 +2,9 @@ package xforce.drivenowbackend.users.domain.model.valueobjects;
 
 
 import jakarta.persistence.Embeddable;
+import lombok.Getter;
 
+@Getter
 @Embeddable
 public record StreetAddress(
         String street,
@@ -17,6 +19,26 @@ public record StreetAddress(
 
     public StreetAddress(String street, String city, String postalCode, String country) {
         this(street, null, city, postalCode, country);
+    }
+
+    public String getStreet() {
+        return street;
+    }
+
+    public String getNumber() {
+        return number;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public String getPostalCode() {
+        return postalCode;
+    }
+
+    public String getCountry() {
+        return country;
     }
 
     public String getStreetAddress(){
