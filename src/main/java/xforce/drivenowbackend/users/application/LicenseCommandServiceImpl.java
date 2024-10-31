@@ -1,5 +1,6 @@
 package xforce.drivenowbackend.users.application;
 
+import org.springframework.stereotype.Service;
 import xforce.drivenowbackend.users.domain.model.aggregates.License;
 import xforce.drivenowbackend.users.domain.model.commands.CreateLicenseCommand;
 import xforce.drivenowbackend.users.domain.model.commands.UpdateLicenseCommand;
@@ -8,6 +9,7 @@ import xforce.drivenowbackend.users.infrastucture.persistence.jpa.repositories.L
 
 import java.util.Optional;
 
+@Service
 public class LicenseCommandServiceImpl implements LicenseCommandService {
 
     private final LicenseRepository licenseRepository;
