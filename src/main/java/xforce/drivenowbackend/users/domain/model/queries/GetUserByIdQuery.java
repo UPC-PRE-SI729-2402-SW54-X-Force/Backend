@@ -1,4 +1,4 @@
 package xforce.drivenowbackend.users.domain.model.queries;
 
-public record GetOwnerByIdQuery() {
+public record GetUserByIdQuery(Long userId) {
 }
