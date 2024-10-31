@@ -5,6 +5,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
 import lombok.Getter;
 import xforce.drivenowbackend.shared.domain.model.aggregates.AuditableAbstractAggregateRoot;
+import xforce.drivenowbackend.users.domain.model.commands.CreateLicenseCommand;
 import xforce.drivenowbackend.users.domain.model.valueobjects.FullName;
 
 import java.util.Date;
@@ -39,4 +40,13 @@ public class License extends AuditableAbstractAggregateRoot<License> {
         this.issueDate = issueDate;
     }
 
+    public License(CreateLicenseCommand command){
+        this.name = new FullName(command.firstName(), command.lastName());
+        this.licenceNumber = command.licenceNumber();
+        this.licenseClass = command.licenseClass();
+        this.licenseCategory = command.licenseCategory();
+        this.licenseUrlImage = command.licenseUrlImage();
+        this.expirationDate = command.expirationDate();
+        this.issueDate = command.issueDate();
+    }
 }
