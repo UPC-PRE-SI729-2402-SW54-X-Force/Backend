@@ -1,9 +1,6 @@
 package xforce.drivenowbackend.users.domain.model.aggregates;
 
-import jakarta.persistence.AttributeOverride;
-import jakarta.persistence.AttributeOverrides;
-import jakarta.persistence.Column;
-import jakarta.persistence.Embedded;
+import jakarta.persistence.*;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
 import lombok.Getter;
@@ -13,6 +10,8 @@ import xforce.drivenowbackend.users.domain.model.valueobjects.EmailAddress;
 import xforce.drivenowbackend.users.domain.model.valueobjects.FullName;
 import xforce.drivenowbackend.users.domain.model.valueobjects.StreetAddress;
 
+@Entity
+@Table(name = "users")
 public class User extends AuditableAbstractAggregateRoot<User> {
     private FullName name;
     @Getter

@@ -4,7 +4,6 @@ package xforce.drivenowbackend.users.domain.model.valueobjects;
 import jakarta.persistence.Embeddable;
 import lombok.Getter;
 
-@Getter
 @Embeddable
 public record StreetAddress(
         String street,
