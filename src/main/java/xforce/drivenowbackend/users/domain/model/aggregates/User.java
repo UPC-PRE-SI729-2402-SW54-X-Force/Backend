@@ -8,6 +8,7 @@ import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
 import lombok.Getter;
 import xforce.drivenowbackend.shared.domain.model.aggregates.AuditableAbstractAggregateRoot;
+import xforce.drivenowbackend.users.domain.model.commands.CreateUserCommand;
 import xforce.drivenowbackend.users.domain.model.valueobjects.EmailAddress;
 import xforce.drivenowbackend.users.domain.model.valueobjects.FullName;
 import xforce.drivenowbackend.users.domain.model.valueobjects.StreetAddress;
@@ -42,6 +43,14 @@ public class User extends AuditableAbstractAggregateRoot<User> {
         this.address = new StreetAddress(street, number, city, postalCode, country);
     }
 
+    public User (CreateUserCommand command)
+    {
+        this.name = new FullName(command.firstName(), command.lastName());
+        this.age = command.age();
+        this.email = new EmailAddress(command.email());
+        this.address = new StreetAddress(command.street(), command.number(), command.city(), command.postalCode(), command.country());
+    }
+
     public String getFullName() {
         return name.getFullName();
     }
@@ -52,5 +61,13 @@ public class User extends AuditableAbstractAggregateRoot<User> {
 
     public String getEmailAddress() {
         return email.email();
+    }
+
+    public User updateInformation(String firstName, String lastName,int age, String email, String street, String number, String city, String postalCode, String country) {
+        this.name = new FullName(firstName, lastName);
+        this.age = age;
+        this.email = new EmailAddress(email);
+        this.address = new StreetAddress(street, number, city, postalCode, country);
+        return this;
     }
 }

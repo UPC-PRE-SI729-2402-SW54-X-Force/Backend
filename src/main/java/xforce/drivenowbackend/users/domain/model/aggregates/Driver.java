@@ -5,7 +5,7 @@ import lombok.Getter;
 import lombok.Setter;
 import xforce.drivenowbackend.shared.domain.model.aggregates.AuditableAbstractAggregateRoot;
 import xforce.drivenowbackend.users.domain.model.commands.CreateDriverCommand;
-import xforce.drivenowbackend.users.domain.model.valueobjects.License;
+import xforce.drivenowbackend.users.domain.model.entities.License;
 
 @Entity
 @Getter

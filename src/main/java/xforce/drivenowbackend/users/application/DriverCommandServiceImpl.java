@@ -3,7 +3,6 @@ package xforce.drivenowbackend.users.application;
 import org.springframework.stereotype.Service;
 import xforce.drivenowbackend.users.domain.model.aggregates.Driver;
 import xforce.drivenowbackend.users.domain.model.commands.CreateDriverCommand;
-import xforce.drivenowbackend.users.domain.model.valueobjects.License;
 import xforce.drivenowbackend.users.domain.services.DriverCommandService;
 import xforce.drivenowbackend.users.infrastucture.persistence.jpa.repositories.DriverRepository;
 
