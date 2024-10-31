@@ -1,5 +1,7 @@
 package xforce.drivenowbackend.users.interfaces.rest;
 
+import io.swagger.v3.oas.annotations.ExternalDocumentation;
+import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -34,6 +36,7 @@ public class UserController {
     }
 
     @PostMapping
+    @Operation(summary = "Create a new user", description = "Creates a new user with the provided details.")
     public ResponseEntity<UserResource> createUser(@RequestBody CreateUserResource resource){
         var createUserCommand = CreateUserCommandFromResourceAssembler.toCommandFromResource(resource);
         var user = this.userCommandService.handle(createUserCommand);
@@ -46,6 +49,7 @@ public class UserController {
     }
 
     @GetMapping
+    @Operation(summary = "Get all users", description = "Returns a list of all users.")
     public ResponseEntity<List<UserResource>> getAllUsers(){
         var getAllusersQuery = new GetAllUsersQuery();
         var users = this.userQueryService.handle(getAllusersQuery);
@@ -56,6 +60,7 @@ public class UserController {
     }
 
     @GetMapping("/{userId}")
+    @Operation(summary = "Get user by id", description = "Returns the user with the provided id.")
     public ResponseEntity<UserResource> getUserById(@PathVariable Long userId){
         var getUserByIdQuery = new GetUserByIdQuery(userId);
         var user = this.userQueryService.handle(getUserByIdQuery);
@@ -65,6 +70,7 @@ public class UserController {
     }
 
     @PutMapping("/{userId}")
+    @Operation(summary = "Update user", description = "Updates the user with the provided id.")
     public ResponseEntity<UserResource> updateUser(@PathVariable Long userId, @RequestBody UserResource resource){
         var updateUserCommand = UpdateUserCommandFromResourceAssembler.toCommandFromResource(userId, resource);
         var user = this.userCommandService.handle(updateUserCommand);
@@ -74,6 +80,7 @@ public class UserController {
     }
 
     @DeleteMapping("/{userId}")
+    @Operation(summary = "Delete user", description = "Deletes a user with the provided id.")
     public ResponseEntity<?> deleteUser(@PathVariable Long userId){
         var deleteUserCommand = new DeleteUserCommand(userId);
         this.userCommandService.handle(deleteUserCommand);
