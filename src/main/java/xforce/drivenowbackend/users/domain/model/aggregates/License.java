@@ -60,4 +60,12 @@ public class License extends AuditableAbstractAggregateRoot<License> {
         this.issueDate = issueDate;
         return this;
     }
+
+    public String getFirstName() {
+        return name.getFirstName();
+    }
+
+    public String getLastName() {
+        return name.getLastName();
+    }
 }
