@@ -2,7 +2,7 @@ package xforce.drivenowbackend.vehicles.domain.services;
 import xforce.drivenowbackend.vehicles.domain.model.commands.CreateVehicleCommand;
 import xforce.drivenowbackend.vehicles.domain.model.commands.DeleteVehicleCommand;
 import xforce.drivenowbackend.vehicles.domain.model.commands.UpdateVehicleCommand;
-import xforce.drivenowbackend.vehicles.domain.model.entities.Vehicle;
+import xforce.drivenowbackend.vehicles.domain.model.aggregates.Vehicle;
 
 import java.util.Optional;
 

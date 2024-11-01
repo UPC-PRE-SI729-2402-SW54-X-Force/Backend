@@ -1,17 +1,20 @@
-package xforce.drivenowbackend.vehicles.domain.model.entities;
+package xforce.drivenowbackend.vehicles.domain.model.aggregates;
 
 import jakarta.persistence.*;
+import lombok.Getter;
 import xforce.drivenowbackend.shared.domain.model.aggregates.AuditableAbstractAggregateRoot;
+import xforce.drivenowbackend.vehicles.domain.model.commands.CreateVehicleCommand;
 import xforce.drivenowbackend.vehicles.domain.model.valueobjects.VehicleStatus;
 
 import java.util.Date;
 
+@Getter
 @Entity
 @Table(name = "vehicles")
 public class Vehicle extends AuditableAbstractAggregateRoot<Vehicle> {
 
     @Column(name = "user_id", nullable = false)
-    private String userId;
+    private Long userId;
 
     @Column(name = "model", nullable = false)
     private String model;
@@ -36,7 +39,7 @@ public class Vehicle extends AuditableAbstractAggregateRoot<Vehicle> {
     public Vehicle() {}
 
     // Constructor completo
-    public Vehicle(String userId, String model, Date manufacturerYear, String imageUrl, String description, VehicleStatus status, String insurance) {
+    public Vehicle(Long userId, String model, Date manufacturerYear, String imageUrl, String description, VehicleStatus status, String insurance) {
         this.userId = userId;
         this.model = model;
         this.manufacturerYear = manufacturerYear;
@@ -46,61 +49,53 @@ public class Vehicle extends AuditableAbstractAggregateRoot<Vehicle> {
         this.insurance = insurance;
     }
 
+    public Vehicle(CreateVehicleCommand command) {
+        this.userId = command.userId();
+        this.model = command.model();
+        this.manufacturerYear = command.manufacturerYear();
+        this.imageUrl = command.imageUrl();
+        this.description = command.description();
+        this.status = command.status();
+        this.insurance = command.insurance();
+    }
+
     // Getters y Setters
 
-    public String getUserId() {
-        return userId;
-    }
-
-    public void setUserId(String userId) {
+    public void setUserId(Long userId) {
         this.userId = userId;
-    }
-
-    public String getModel() {
-        return model;
     }
 
     public void setModel(String model) {
         this.model = model;
     }
 
-    public Date getManufacturerYear() {
-        return manufacturerYear;
-    }
-
     public void setManufacturerYear(Date manufacturerYear) {
         this.manufacturerYear = manufacturerYear;
-    }
-
-    public String getImageUrl() {
-        return imageUrl;
     }
 
     public void setImageUrl(String imageUrl) {
         this.imageUrl = imageUrl;
     }
 
-    public String getDescription() {
-        return description;
-    }
-
     public void setDescription(String description) {
         this.description = description;
-    }
-
-    public VehicleStatus getStatus() {
-        return status;
     }
 
     public void setStatus(VehicleStatus status) {
         this.status = status;
     }
 
-    public String getInsurance() {
-        return insurance;
-    }
-
     public void setInsurance(String insurance) {
         this.insurance = insurance;
+    }
+
+    public Vehicle updateInformation(String model, Date manufacturerYear, String imageUrl, String description, VehicleStatus status, String insurance) {
+        this.model = model;
+        this.manufacturerYear = manufacturerYear;
+        this.imageUrl = imageUrl;
+        this.description = description;
+        this.status = status;
+        this.insurance = insurance;
+        return this;
     }
 }

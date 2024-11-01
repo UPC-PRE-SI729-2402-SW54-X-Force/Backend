@@ -1,4 +1,0 @@
-package xforce.drivenowbackend.vehicles.domain.services;
-
-public interface VehicleCommandService {
-}
