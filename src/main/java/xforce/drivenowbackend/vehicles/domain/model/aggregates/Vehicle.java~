@@ -61,32 +61,32 @@ public class Vehicle extends AuditableAbstractAggregateRoot<Vehicle> {
 
     // Getters y Setters
 
-    public Long getUserId() {
-        return userId;
+    public void setUserId(Long userId) {
+        this.userId = userId;
     }
 
-    public String getModel() {
-        return model;
+    public void setModel(String model) {
+        this.model = model;
     }
 
-    public Date getManufacturerYear() {
-        return manufacturerYear;
+    public void setManufacturerYear(Date manufacturerYear) {
+        this.manufacturerYear = manufacturerYear;
     }
 
-    public String getImageUrl() {
-        return imageUrl;
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 
-    public String getDescription() {
-        return description;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
-    public VehicleStatus getStatus() {
-        return status;
+    public void setStatus(VehicleStatus status) {
+        this.status = status;
     }
 
-    public String getInsurance() {
-        return insurance;
+    public void setInsurance(String insurance) {
+        this.insurance = insurance;
     }
 
     public Vehicle updateInformation(String model, Date manufacturerYear, String imageUrl, String description, VehicleStatus status, String insurance) {

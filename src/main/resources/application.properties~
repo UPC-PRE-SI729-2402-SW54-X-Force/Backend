@@ -4,7 +4,7 @@ spring.application.name=Drive Now Backend
 # Spring Data Source Configuration
 spring.datasource.url=jdbc:postgresql://localhost:5432/drive_now
 spring.datasource.username=postgres
-spring.datasource.password=12345678
+spring.datasource.password=123456
 spring.datasource.driver-class-name=org.postgresql.Driver
 
 # Spring Data JPA Configuration
