@@ -1,0 +1,4 @@
+package xforce.drivenowbackend.vehicles.interfaces.rest.transform;
+
+public class CreateVehicleCommandFromResourceAssembler {
+}
